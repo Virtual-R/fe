@@ -1,0 +1,3 @@
+const LOGIN = 'LOGIN';
+const SIGNUP = 'SIGNUP';
+const GET_PROJECTS ='GET_PROJECTS';
