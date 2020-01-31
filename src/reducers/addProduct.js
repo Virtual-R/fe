@@ -1,17 +1,30 @@
-import ADD_PRODUCT from '../types/types'
+import {ADD_PROJECTS_START,ADD_PROJECTS_SUCCESS, ADD_PROJECTS_ERROR} from '../types/types';
+
 initialProductState ={
-   product_id: Date.now,
-   user_id: Date.now,
-   name:'',
-   description:'',
-   goal_amount:'',
-   amount_received:''
-}
+   product: [],
+   addingProduct: false,
+   error:''
+
+   }
+
 export const addProduct = (state= initialProductState, action) => {
    switch(action.type){
-      case ADD_PRODUCT:
+      case ADD_PROJECTS_START:
       return {
-         
+         ...state,
+         addingProduct: false,
+      }
+      case ADD_PROJECTS_SUCCESS:
+      return {
+         ...state,
+         addingProduct: true,
+         project: action.payload
+      }
+
+      case ADD_PROJECTS_ERROR:
+      return {
+         ...state,
+         error: action.payload
       }
       default:
       return state;
