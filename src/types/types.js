@@ -1,6 +1,14 @@
-const LOGIN = 'LOGIN';
-const SIGNUP = 'SIGNUP';
-const GET_PROJECTS ='GET_PROJECTS';
-const ADD_PROJECTS ='ADD_PROJECTS';
-const EDIT_PROJECTS ='EDIT_PROJECTS';
+export const LOGIN_START = 'LOGIN_START';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_ERROR = 'LOGIN_ERROR';
+
+export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
+export const SIGNUP_ERROR = 'SIGNUP_ERROR';
+export const SIGNUP_START = 'SIGNUP_START';
+
+export const GET_PROJECTS ='GET_PROJECTS';
+export const ADD_PROJECTS ='ADD_PROJECTS';
+export const EDIT_PROJECTS ='EDIT_PROJECTS';
+
+
 
