@@ -1,13 +1,10 @@
 import React from 'react'
 
-
-const LandingPage = props => {
+ const EditProductForm = () => {
    return (
       <div>
          
       </div>
    )
 }
-
-
-export default LandingPage
+export default EditProductForm;

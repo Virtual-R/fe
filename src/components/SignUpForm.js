@@ -1,11 +1,14 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import {Link} from 'react-router-dom';
 
 function SignUpForm() {
   const { register, handleSubmit } = useForm()
   const onSubmit = data => console.log(data)
    
   return (
+    <>
+    <Link to='/login'>Login</Link>
     <form onSubmit={handleSubmit(onSubmit)}>
 
       <input type="text" name="firstName" ref={register({ required: true, maxLength: 20 })} />
@@ -19,6 +22,7 @@ function SignUpForm() {
       <input type="submit" />
 
     </form>
+    </>
   );
 }
 
