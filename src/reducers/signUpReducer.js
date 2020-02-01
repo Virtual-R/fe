@@ -1,11 +1,8 @@
 import {SIGNUP_ERROR, SIGNUP_SUCCESS, SIGNUP_START} from '../types/types'
 const initialSignUpState = {
-   name: '',
-   email:'',
-   password:'',
+   user:[],
    isLoading: false,
-   isloaded: false,
-   error: null
+   error: ''
 }
 
 export const signUpReducer = (state = initialSignUpState, action) =>{
@@ -19,15 +16,14 @@ export const signUpReducer = (state = initialSignUpState, action) =>{
       return {
          ...state,
          isloading: false,
-         isLoaded: true
+         users:[],
+         
 
 
       }
       case SIGNUP_ERROR: 
       return {
         ...state,
-        isLoading: false,
-        isLoaded: false,
         error: action.payload
 
       }
