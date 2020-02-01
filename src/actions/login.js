@@ -8,5 +8,5 @@ export const login = (props) => dispatch=>{
       dispatch({type:LOGIN_SUCCESS, payload: response.data.results})
    })
    .catch(error =>dispatch({ type: LOGIN_ERROR, payload: error.response}))
-   props.history.push('/protectedRoute');
+   ;
 }
