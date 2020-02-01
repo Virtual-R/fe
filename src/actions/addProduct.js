@@ -3,7 +3,7 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 export const addProduct = () => dispatch=>{
    dispatch({type: ADD_PROJECTS_START});
    axiosWithAuth()
-   .post('')//api goes here
+   .put('')//api goes here
    .then(response=>{
       dispatch({type:ADD_PROJECTS_SUCCESS, payload: response.data.results})
    })
