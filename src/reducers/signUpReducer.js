@@ -1,5 +1,8 @@
 import {SIGNUP_ERROR, SIGNUP_SUCCESS, SIGNUP_START} from '../types/types'
 const initialSignUpState = {
+   username:'',
+   password:'',
+   email:'',
    user:[],
    isLoading: false,
    error: ''

@@ -1,13 +1,13 @@
 import {ADD_PROJECTS_START,ADD_PROJECTS_SUCCESS, ADD_PROJECTS_ERROR} from '../types/types';
 
-initialProductState ={
+const initialProductState ={
    product: [],
    addingProduct: false,
    error:''
 
    }
 
-export const addProduct = (state= initialProductState, action) => {
+export const addProduct = (state = initialProductState, action) => {
    switch(action.type){
       case ADD_PROJECTS_START:
       return {

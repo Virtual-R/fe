@@ -2,7 +2,8 @@ import {LOGIN_START, LOGIN_ERROR, LOGIN_SUCCESS} from '../types/types';
 
 
 const initialLoginState = {
-  
+   username:'',
+   password:'',
    isLoading: false,
    users:[],
    errors: ''
@@ -13,7 +14,7 @@ export const loginReducer = (state = initialLoginState, action) =>{
       case LOGIN_START: 
       return {
          ...state,
-         isLoaded: true
+         isLoading: true
       }
 
       case LOGIN_SUCCESS:
