@@ -1,47 +1,40 @@
-import React , {useState}from  'react';
+import React, {useState} from 'react';
 import { useForm } from 'react-hook-form';
 import {Link} from 'react-router-dom';
-import {signUp} from '../actions/signUp';
-import {useSelector,useDispatch} from 'react-redux';
+import axios from 'axios';
+
 
 function SignUpForm() {
-  const dispatch = useDispatch();
-  const user = useSelector(state=>state.signup)
-  console.log("user",user.password)
-  const { register, handleSubmit } = useForm()
-  const [users, setUsers] = useState({
-    email:'',
-    username:'',
-    password:'',
-  })
-  // const onSubmit = data => console.log(data)
-  const onSubmit = (event,props) =>{
-    // event.preventDefault();
-    dispatch(signUp(setUsers))
-    props.history.push('/landingpage')
+  const { register, errors, handleSubmit } = useForm();
+  const [user, setUser] = useState ({})
 
-  }
-  const handleChange = (event)=>{
-    event.preventDefault()
-    setUsers({
-      ...users,
-      [event.target.name] : event.target.value
+  const onSubmit = data => {
+    const user = data;
 
-    })
-  }
+    axios.post('/api/register', user)
+    .then(res => setUser(res.data))
+    .catch(err => console.log(err))
+  } 
+
+  console.log(user)
+  
    
   return (
     <>
     <Link to='/login'>Login</Link>
     <form onSubmit={handleSubmit(onSubmit)}>
 
-      <input type="text" name="firstName" ref={register({ required: true, maxLength: 20 })} value={users.username} onChange={handleChange}/>
+      <input placeholder="John" type="text" name="firstName" ref={register({ required: true, maxLength: 20 })} />
+      {errors.firstName && 'Uh Oh...First Name is required.'}
 
-      <input type="text" name="lastName" ref={register({ required: true, pattern: /^[A-Za-z]+$/i })} />
+      <input placeholder="Doe" type="text" name="lastName" ref={register({ required: true, pattern: /^[A-Za-z]+$/i })} />
+      {errors.lastName && 'Uh Oh...Last Name is required.'}
 
       <input type="email" placeholder="Johndoe@email.com" name="email" ref={register({required: true})}/>
-      
-      <input name="age" type="number" ref={register({ min: 18, max: 150})} />
+      {errors.email && 'Uh Oh...An Email is required.'}
+
+      <input placeholder="Age" name="age" type="number" ref={register({ min: 18})} />
+      {errors.age && 'Uh Oh...You must be 18 years or older to sign-up.'}
 
       <input type="submit" />
 
