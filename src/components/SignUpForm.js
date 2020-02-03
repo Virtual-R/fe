@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import { useForm } from 'react-hook-form';
+
 import axios from 'axios';
+
 
 function SignUpForm() {
   const { register, errors, handleSubmit } = useForm();
@@ -18,6 +20,8 @@ function SignUpForm() {
   
    
   return (
+    <>
+    <Link to='/login'>Login</Link>
     <form onSubmit={handleSubmit(onSubmit)}>
 
       <input placeholder="John" type="text" name="firstName" ref={register({ required: true, maxLength: 20 })} />
@@ -35,6 +39,7 @@ function SignUpForm() {
       <input type="submit" />
 
     </form>
+    </>
   );
 }
 
