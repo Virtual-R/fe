@@ -1,7 +1,7 @@
 import {EDIT_PROJECTS_START,EDIT_PROJECTS_SUCCESS, EDIT_PROJECTS_ERROR} from '../types/types';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
-export const addProduct = () => dispatch=>{
+export const editProject = () => dispatch=>{
    dispatch({type: EDIT_PROJECTS_START});
    axiosWithAuth()
    .post('')//api goes here
