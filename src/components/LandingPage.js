@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import  {editProject,deleteProject} from '../actions/editProject';
+import ProjectForm from './ProjectForm';
 
 
 const LandingPage = props => {
@@ -19,6 +20,7 @@ const LandingPage = props => {
    }
    return (
       <div>
+         <ProjectForm/>
        {/* {projects.map((project)=>(
           <div key={project.id}></div>
        ))}  */}
