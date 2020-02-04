@@ -1,6 +1,9 @@
 import * as React from "react";
 import { Button, Form, FormGroup, Input } from "reactstrap";
 import styled from "styled-components";
+import {useDispatch, useSelector, connect} from 'react-redux';
+import {login} from '../actions/login';
+import {useState} from 'react';
 
 const H2 = styled.h2`
   color: #ffffff;
@@ -13,18 +16,26 @@ const Div = styled.div`
   margin-left: 150px;
 `;
 
-export default function LogInForm() {
+function LogInForm() {
   const [userEmail, setUserEmail] = React.useState("");
   const [userPassword, setUserPassword] = React.useState("");
   const [loading] = React.useState(false);
-
+  // const dispatch = useDispatch();
+  // const user = useSelector(state=>state.login)
+  const [users, setUsers] = useState([])
+ 
+  const handleChange = event =>{
+    setUsers({
+      ...users, [event.target.name] : event.target.value
+    })
+    
+  }
+  
   return (
     <Div>
       <Form
-        onSubmit={e => {
-          e.preventDefault();
-          // Auth handler
-        }}
+        onSubmit={login}
+        
       >
         <H2>Log in</H2>
 
@@ -32,18 +43,18 @@ export default function LogInForm() {
           <Input
             type="email"
             name="email"
-            value={userEmail}
+            value={users.username}
             placeholder="john@mail.com"
-            onChange={e => setUserEmail(e.target.value)}
+            onChange={handleChange}
           />
         </FormGroup>
         <FormGroup>
           <Input
             type="password"
             name="password"
-            value={userPassword}
+            value={users.password}
             placeholder="Password"
-            onChange={e => setUserPassword(e.target.value)}
+            onChange={handleChange}
           />
         </FormGroup>
 
@@ -54,3 +65,17 @@ export default function LogInForm() {
     </Div>
   );
 }
+
+const  mapDispatchToProps={
+  login
+}
+function mapStateToProps(state) {
+  return{
+  isLoading: state.login.isLoading,
+  error: state.login.error,
+  user: state.login.username,
+  password: state.login.password
+}
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(LogInForm)
