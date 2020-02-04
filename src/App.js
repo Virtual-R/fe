@@ -1,5 +1,6 @@
 import React from 'react';
-import {Switch, Route} from 'react-router-dom'
+import {Switch, Route} from 'react-router-dom';
+import DashboardContainer from "./components/dashboard";
 
 import './App.css';  
 import LogInForm from './components/LogInForm'
@@ -18,8 +19,8 @@ function App() {
       <Route path='/addproject' component={ProjectForm}/>
       <Route path='/editproject' component={EditProjectForm}/>
       <Route path='/landingpage' component={LandingPage}/>
-      
-    </Switch>
+      </Switch>
+      <DashboardContainer/>
       </div>
   );
 }
