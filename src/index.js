@@ -14,8 +14,8 @@ import logger from 'redux-logger'
 const rootReducer = combineReducers({
   login: loginReducer,
   signup: signUpReducer,
-  addProduct: addProject,
-  editProduct: editProject
+  addProject: addProject,
+  editProject: editProject
 });
 const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
