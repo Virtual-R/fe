@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
 import { useForm } from 'react-hook-form';
+
 import axios from 'axios';
 import "./SignUpForm.scss";
+
 
 function SignUpForm() {
   const { register, errors, handleSubmit } = useForm();
@@ -19,7 +21,13 @@ function SignUpForm() {
   
    
   return (
+<<<<<<< HEAD
     <form className="formContainer" onSubmit={handleSubmit(onSubmit)}>
+=======
+    <>
+    <Link to='/login'>Login</Link>
+    <form onSubmit={handleSubmit(onSubmit)}>
+>>>>>>> 799a2fe6fc6c2d189e75770d747c1175ba71c4df
 
       <input className="formItem" placeholder="John" type="text" name="firstName" ref={register({ required: true, maxLength: 20 })} />
       {errors.firstName && 'Uh Oh...First Name is required.'}
@@ -36,6 +44,7 @@ function SignUpForm() {
       <input className="formItem" type="submit" />
 
     </form>
+    </>
   );
 }
 
