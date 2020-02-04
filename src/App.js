@@ -1,13 +1,15 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
 import DashboardContainer from "./components/dashboard";
-
 import './App.css';  
 import LogInForm from './components/LogInForm'
 import SignUpForm from './components/SignUpForm';
 import LandingPage from './components/LandingPage';
 import ProjectForm from './components/ProjectForm';
 import EditProjectForm from './components/EditProductForm';
+import "./App.css";
+import Logoff from "./components/Logoff";
+import { PrivateRoute } from "./components/PrivateRoute";
 
 
 function App() {
@@ -21,7 +23,11 @@ function App() {
       <Route path='/landingpage' component={LandingPage}/>
       </Switch>
       <DashboardContainer/>
-      </div>
+    </div>
+    
+//     <PrivateRoute exact path="/addproject" component={ProjectForm} />
+      {/* <Route path='/dashboard' component={DashBoard}/> */}
+//     <Route path="/logoff" component={Logoff} />
   );
 }
 

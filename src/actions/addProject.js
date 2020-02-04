@@ -1,9 +1,9 @@
 import {ADD_PROJECTS_START,ADD_PROJECTS_SUCCESS, ADD_PROJECTS_ERROR} from '../types/types';
 import axiosWithAuth from '../utils/axiosWithAuth';
-export const addProject = () => dispatch=>{
+export const addProject = (project) => dispatch=>{
    dispatch({type: ADD_PROJECTS_START});
    axiosWithAuth()
-   .put('')//api goes here
+   .post('',project)//api goes here
    .then(response=>{
       dispatch({type:ADD_PROJECTS_SUCCESS, payload: response.data.results})
    })

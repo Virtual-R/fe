@@ -15,3 +15,4 @@ export const Logoff = props => {
     </div>
   );
 };
+export default Logoff;
