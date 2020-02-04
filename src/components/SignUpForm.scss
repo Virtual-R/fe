@@ -1,0 +1,12 @@
+.formContainer {
+    display: flex;
+    width:800px;
+    height:300px;
+    border:1px solid red;
+    flex-wrap: wrap;
+
+    .formItem {
+        border:2px solid green;
+        height:25px;
+    }
+}
