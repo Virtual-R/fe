@@ -16,8 +16,6 @@ function SignUpForm() {
     .then(res => setUser(res.data))
     .catch(err => console.log(err))
   } 
-
-  console.log(user)
   
    
   return (
