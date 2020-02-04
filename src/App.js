@@ -21,13 +21,12 @@ function App() {
       <Route path='/addproject' component={ProjectForm}/>
       <Route path='/editproject' component={EditProjectForm}/>
       <Route path='/landingpage' component={LandingPage}/>
-      </Switch>
+      <PrivateRoute exact path="/addproject" component={ProjectForm} />
+      <Route path="/logoff" component={Logoff} />      </Switch>
       <DashboardContainer/>
     </div>
     
-//     <PrivateRoute exact path="/addproject" component={ProjectForm} />
-      {/* <Route path='/dashboard' component={DashBoard}/> */}
-//     <Route path="/logoff" component={Logoff} />
+
   );
 }
 
