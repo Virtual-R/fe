@@ -1,11 +1,15 @@
 import {EDIT_PROJECTS_START,EDIT_PROJECTS_SUCCESS, EDIT_PROJECTS_ERROR} from '../types/types';
 
-const initialProductState ={
-   product: [],
+const initialProductState = [{
+   title: 'test',
    editingProduct: false,
-   error:''
+   error:'',
+   name:'',
+   description:'test',
+   amount:''
+}
 
-   }
+]
 
 export const editProject = (state= initialProductState, action) => {
    switch(action.type){
