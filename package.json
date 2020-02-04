@@ -19,11 +19,8 @@
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-<<<<<<< HEAD
-    "sass": "^1.25.0"
-=======
+    "sass": "^1.25.0",
     "styled-components": "^5.0.0"
->>>>>>> 799a2fe6fc6c2d189e75770d747c1175ba71c4df
   },
   "scripts": {
     "start": "react-scripts start",
