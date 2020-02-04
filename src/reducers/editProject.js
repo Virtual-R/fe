@@ -1,27 +1,27 @@
-import {ADD_PROJECTS_START,ADD_PROJECTS_SUCCESS, ADD_PROJECTS_ERROR} from '../types/types';
+import {EDIT_PROJECTS_START,EDIT_PROJECTS_SUCCESS, EDIT_PROJECTS_ERROR} from '../types/types';
 
 const initialProductState ={
    product: [],
-   addingProduct: false,
+   editingProduct: false,
    error:''
 
    }
 
-export const addProduct = (state = initialProductState, action) => {
+export const editProject = (state= initialProductState, action) => {
    switch(action.type){
-      case ADD_PROJECTS_START:
+      case EDIT_PROJECTS_START:
       return {
          ...state,
          addingProduct: false,
       }
-      case ADD_PROJECTS_SUCCESS:
+      case EDIT_PROJECTS_SUCCESS:
       return {
          ...state,
-         addingProduct: true,
+         editingProduct: true,
          project: action.payload
       }
 
-      case ADD_PROJECTS_ERROR:
+      case EDIT_PROJECTS_ERROR:
       return {
          ...state,
          error: action.payload

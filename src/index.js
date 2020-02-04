@@ -8,16 +8,16 @@ import { signUpReducer } from "./reducers/signUpReducer";
 import { loginReducer } from "./reducers/loginReducer";
 import { BrowserRouter as Router } from "react-router-dom";
 import thunk from 'redux-thunk';
-import { addProduct } from "./reducers/addProduct";
-import {editProduct} from'./reducers/editProduct';
-
+import { addProject } from "./reducers/addProject";
+import {editProject} from'./reducers/editProject';
+import logger from 'redux-logger'
 const rootReducer = combineReducers({
   login: loginReducer,
   signup: signUpReducer,
-  addProduct: addProduct,
-  editProduct: editProduct
+  addProduct: addProject,
+  editProduct: editProject
 });
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 
 ReactDOM.render(
   <Router>

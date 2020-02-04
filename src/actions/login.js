@@ -3,7 +3,7 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 export const login = (props) => dispatch=>{
    dispatch({type: LOGIN_START});
    axiosWithAuth()
-   .post('')//api goes here
+   .post('login')//api goes here
    .then(response=>{
       dispatch({type:LOGIN_SUCCESS, payload: response.data.results})
    })
