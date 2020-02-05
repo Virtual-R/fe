@@ -10,7 +10,7 @@ import EditProjectForm from './components/EditProductForm';
 import "./App.css";
 import Logoff from "./components/Logoff";
 import { PrivateRoute } from "./components/PrivateRoute";
-import NavBar from "./components/NavBar"
+
 
 
 function App() {
