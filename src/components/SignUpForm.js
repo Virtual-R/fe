@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { useForm } from 'react-hook-form';
-import {Link} from 'react-router-dom';
+
 import axios from 'axios';
 import "./SignUpForm.scss";
 // import axiosWithAuth from '../utils/axiosWithAuth';
@@ -23,7 +23,7 @@ function SignUpForm() {
    
   return (
     <>
-      <Link to='/login'>Login</Link>
+      
       <form onSubmit={handleSubmit(onSubmit)}>
 
         <input className="formItem" placeholder="John" type="text" name="firstName" ref={register({ required: true, maxLength: 20 })} />
