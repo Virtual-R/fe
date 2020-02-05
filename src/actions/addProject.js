@@ -3,7 +3,7 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 export const addProject = (project) => dispatch=>{
    dispatch({type: ADD_PROJECTS_START});
    axiosWithAuth()
-   .post('',project)//api goes here
+   .post('https://sixr-clone.herokuapp.com/api/overview',project)//api goes here
    .then(response=>{
       dispatch({type:ADD_PROJECTS_SUCCESS, payload: response.data.results})
    })
