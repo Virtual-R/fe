@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
 import "./SignUpForm.scss";
+// import axiosWithAuth from '../utils/axiosWithAuth';
 
 
 function SignUpForm() {
@@ -12,10 +13,12 @@ function SignUpForm() {
   const onSubmit = data => {
     const user = data;
 
-    axios.post('/api/register', user)
+    axios.post('https://sixr-clone.herokuapp.com/api/register', user)
     .then(res => setUser(res.data))
     .catch(err => console.log(err))
   } 
+
+  console.log(user);
   
    
   return (
@@ -34,6 +37,9 @@ function SignUpForm() {
 
         <input className="formItem" placeholder="Age" name="age" type="number" ref={register({ min: 18})} />
         {errors.age && 'Uh Oh...You must be 18 years or older to sign-up.'}
+
+        <input placeholder="Password" className="password" name="password" type="password" ref={register({required:true})}/>
+        {errors.password && 'Uh Oh...A Password is required'}
 
         <input className="formItem" type="submit" />
 

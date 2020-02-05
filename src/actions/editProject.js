@@ -4,7 +4,7 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 export const editProject = () => dispatch=>{
    dispatch({type: EDIT_PROJECTS_START});
    axiosWithAuth()
-   .post('')//api goes here
+   .put('')//api goes here
    .then(response=>{
       dispatch({type:EDIT_PROJECTS_SUCCESS, payload: response.data.results})
    })

@@ -1,23 +1,25 @@
 import React , {useState} from 'react';
 import { addProject } from '../reducers/addProject';
 import {useDispatch} from 'react-redux';
+import Logoff from './Logoff';
 
 
  const ProjectForm = () => {
     const [newProject, setNewProject] = useState({
+       title:'',
        name:'',
        description:'',
        amount:'',
     });
     const dispatch = useDispatch()
-    const handleSubmit=(event)=>{
+    const handleChange=(event)=>{
        event.preventDefault()
       setNewProject({
          ...newProject,
          [event.target.name]: event.target.value
       })
     }
-    const handleChange =(event) =>{
+    const handleSubmit =(event) =>{
        event.preventDefault();
        dispatch(addProject(newProject));
 
@@ -25,12 +27,16 @@ import {useDispatch} from 'react-redux';
    return (
       <form onSubmit={handleSubmit}>
          <label>
-            Name of Project
+           Title:
+           <input type='text' name='title' value={newProject.title} onChange={handleChange}/>
+         </label>
+         <label>
+            Name of Project:
          <input type="text" name='name' value={newProject.name} onChange={handleChange}/>
          </label>
-         <label> Description of Project<input type='text' name='description' value={newProject.description} onChange={handleChange}></input></label>
-         <label>Amount Needed<input type="text" name='amount' value={newProject.amount} onChange={handleChange}/></label>
-         <button type='submit'>Add Project</button>
+         <label> Description of Project: <input type='text' name='description' value={newProject.description} onChange={handleChange}></input></label>
+         <label>Amount Needed: <input type="text" name='amount' value={newProject.amount} onChange={handleChange}/></label>
+         <button type='submit'>Add Project: </button>
          </form>
    )
 }
