@@ -4,13 +4,14 @@ import {useDispatch} from 'react-redux';
 import Logoff from './Logoff';
 
 
- const ProjectForm = () => {
+ const ProjectForm = (props) => {
     const [newProject, setNewProject] = useState({
        title:'',
        name:'',
        description:'',
        amount:'',
     });
+ 
     const dispatch = useDispatch()
     const handleChange=(event)=>{
        event.preventDefault()
@@ -19,11 +20,14 @@ import Logoff from './Logoff';
          [event.target.name]: event.target.value
       })
     }
+    console.log(newProject)
     const handleSubmit =(event) =>{
        event.preventDefault();
-       dispatch(addProject(newProject));
-
+       props.history.push('/landingpage')
+      dispatch(addProject(newProject));
+       
     }
+   
    return (
       <form onSubmit={handleSubmit}>
          <label>
@@ -37,6 +41,7 @@ import Logoff from './Logoff';
          <label> Description of Project: <input type='text' name='description' value={newProject.description} onChange={handleChange}></input></label>
          <label>Amount Needed: <input type="text" name='amount' value={newProject.amount} onChange={handleChange}/></label>
          <button type='submit'>Add Project: </button>
+        
          </form>
    )
 }

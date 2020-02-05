@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import { Container, Col, Row } from 'reactstrap';
 import axios from 'axios';
 import DashboardList from "./dashboardList";
-
+import LogInForm from './LogInForm';
+import SignUpForm from './SignUpForm';
 const DashboardContainer = () => {
     const [project, setProject] = useState([])
 
@@ -16,7 +17,11 @@ const DashboardContainer = () => {
 
     return (
         <Container>
+          <LogInForm/>
+          <SignUpForm/>
             <h1 className="Header">Dashboard</h1>
+            
+       
             <Row>
                 {project.map((item, id) => {
                     return (
