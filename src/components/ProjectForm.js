@@ -23,8 +23,8 @@ import Logoff from './Logoff';
     console.log(newProject)
     const handleSubmit =(event) =>{
        event.preventDefault();
+       dispatch(addProject(newProject));
        props.history.push('/landingpage')
-      dispatch(addProject(newProject));
        
     }
    
