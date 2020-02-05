@@ -1,5 +1,5 @@
 import React from 'react';
-import {Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import DashboardContainer from "./components/dashboard";
 import './App.css';  
 import LogInForm from './components/LogInForm'
@@ -14,6 +14,7 @@ import { PrivateRoute } from "./components/PrivateRoute";
 
 function App() {
   return (
+    <Router>
     <div className="App">
       <Switch>
       <Route path ='/login' component={LogInForm}/>
@@ -25,6 +26,7 @@ function App() {
       <Route path="/logoff" component={Logoff} />      </Switch>
       <DashboardContainer/>
     </div>
+    </Router>
     
 
   );
