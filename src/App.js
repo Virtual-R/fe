@@ -10,25 +10,25 @@ import EditProjectForm from './components/EditProductForm';
 import "./App.css";
 import Logoff from "./components/Logoff";
 import { PrivateRoute } from "./components/PrivateRoute";
+import NavBar from "./components/NavBar"
 import DashboardCard from './components/dashboardCard';
+
 
 
 function App() {
   return (
     <div className="App">
-      
+      <Route path='/navBar' component={NavBar}/>
+    
       <Switch>
-        
       <Route path ='/login' component={LogInForm}/>
       <Route  exact path='/' component={DashboardContainer}/>
       <Route path='/addproject' component={ProjectForm}/>
       <Route path='/editproject' component={EditProjectForm}/>
       <Route path='/landingpage' component={LandingPage}/>
       <PrivateRoute exact path="/addproject" component={ProjectForm} />
-      <Route path="/logoff" component={Logoff} />     
-      
-       </Switch>
-      
+      <Route path="/logoff" component={Logoff} />      
+      </Switch>    
     </div>
     
 
