@@ -1,18 +1,39 @@
 import React, {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
+import {Route, Redirect} from "react-router-dom"; 
 import  {editProject,deleteProject} from '../actions/editProject';
+import axiosWithAuth from '../utils/axiosWithAuth';
 
 
 
-const LandingPage = props => {
-   
-   const projects = useSelector( state => state.editProject);
+const LandingPage = (props, id) => {
+
+   const [project, setProject] = useState([])
+
    const dispatch = useDispatch();
    const handleDelete = event =>{
       event.preventDefault();
       dispatch(deleteProject(event.target.value));
       };
-      console.log(projects)
+
+      const product = [project.find(product => product.id === id)];
+     
+         if (window.confirm("Are you sure?!")) {
+           setProject(project.filter(product => product.id !== id));
+           props.editProject(project)
+     
+           axiosWithAuth()
+             .delete(``)//will change
+             .then(result => {
+               console.log("Deleted");
+             })
+             .catch(error => {
+               console.log(error);
+               setProject([...project, product]);
+             });
+       };
+
+      console.log(project)
 
    const handleEdit = event =>{
       event.preventDefault()
@@ -21,8 +42,8 @@ const LandingPage = props => {
    return (
       <div>
          
-       {projects.map((project,index)=>(
-          <div key={index}>
+       {project.map((product, index)=>(
+          <div key={product.id}>
           <p>Title: {project.title}</p>
           <p>Description: {project.description} </p>
           <p>Amount: </p>

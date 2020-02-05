@@ -1,5 +1,5 @@
 import React from 'react';
-import {Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import DashboardContainer from "./components/dashboard";
 import './App.css';  
 import LogInForm from './components/LogInForm'
@@ -15,6 +15,7 @@ import NavBar from "./components/NavBar"
 
 function App() {
   return (
+    <Router>
     <div className="App">
 
       <Switch>
@@ -29,6 +30,7 @@ function App() {
       
 
     </div>
+    </Router>
     
 
   );
