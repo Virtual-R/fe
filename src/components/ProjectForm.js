@@ -2,6 +2,7 @@ import React , {useState} from 'react';
 import { addProject } from '../reducers/addProject';
 import {useDispatch} from 'react-redux';
 import Logoff from './Logoff';
+import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 
  const ProjectForm = (props) => {
@@ -23,26 +24,48 @@ import Logoff from './Logoff';
     console.log(newProject)
     const handleSubmit =(event) =>{
        event.preventDefault();
+       dispatch(addProject(newProject));
        props.history.push('/landingpage')
-      dispatch(addProject(newProject));
        
     }
    
    return (
-      <form onSubmit={handleSubmit}>
-         <label>
-           Title:
-           <input type='text' name='title' value={newProject.title} onChange={handleChange}/>
-         </label>
-         <label>
-            Name of Project:
-         <input type="text" name='name' value={newProject.name} onChange={handleChange}/>
-         </label>
-         <label> Description of Project: <input type='text' name='description' value={newProject.description} onChange={handleChange}></input></label>
-         <label>Amount Needed: <input type="text" name='amount' value={newProject.amount} onChange={handleChange}/></label>
-         <button type='submit'>Add Project: </button>
-        
-         </form>
+      <Form onSubmit={handleSubmit}>
+      <Row form>
+      <Col md={3}>
+      <FormGroup>
+         <Label for ="title">Title</Label>
+         
+           <Input type='text' name='title' value={newProject.title} onChange={handleChange}/>
+           </FormGroup>
+           </Col>
+      <Col md={3}>
+      <FormGroup>
+         <Label for='name of project'> Name of Project:</Label>
+           
+         <Input type="text" name='name' value={newProject.name} onChange={handleChange}/>
+         </FormGroup>
+         </Col>
+         </Row>
+         <Row form>
+         <Col md={3}>
+         <FormGroup>
+         <Label for='Description'> Description of Project:</Label>
+         <Input type='text' name='description' value={newProject.description} onChange={handleChange}/>
+         </FormGroup>
+         </Col>
+         <Col md={3}>
+         <FormGroup>
+         <Label>Amount Needed:</Label> 
+         <Input type="text" name='amount' value={newProject.amount} onChange={handleChange}/>
+         </FormGroup>
+
+         </Col>
+         </Row>
+         <Col md={6}>
+         <Button type='submit'>Add Project: </Button>
+         </Col>
+         </Form>
    )
 }
 export default ProjectForm;
