@@ -11,12 +11,15 @@ export const editProject = () => dispatch=>{
    .catch(error =>dispatch({ type: EDIT_PROJECTS_ERROR, payload: error.response}))
 }
 
-export const deleteProject = () =>dispatch=>{
+export const deleteProject = () => dispatch =>{
    dispatch({type: DELETE_PROJECTS_START});
    axiosWithAuth()
-   .delete('')
+   .delete("")
    .then(response=>{
+      console.log(response);
       dispatch({type:DELETE_PROJECTS_SUCCESS, payload: response.data.results})
    })
    .catch(error=>dispatch({DELETE_PROJECTS_ERROR, payload:error.response}))
+
+
 }
