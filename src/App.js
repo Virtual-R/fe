@@ -10,8 +10,8 @@ import EditProjectForm from './components/EditProductForm';
 import "./App.css";
 import Logoff from "./components/Logoff";
 import { PrivateRoute } from "./components/PrivateRoute";
-import NavBar from "./components/NavBar"
 import signUproute from './components/signupRoute';
+
 
 function App() {
   return (
@@ -26,7 +26,8 @@ function App() {
       <Route path='/landingpage' component={LandingPage}/>
       <PrivateRoute exact path="/addproject" component={ProjectForm} />
       <Route path="/logoff" component={Logoff} />  
-      <Route path='/signup' component={signUproute}/>   </Switch>
+      <Route path='/signup' component={signUproute}/>   
+      </Switch>
    
       
 
