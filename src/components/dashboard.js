@@ -18,7 +18,7 @@ const DashboardContainer = () => {
     return (
         <Container>
           <LogInForm/>
-          <SignUpForm/>
+          {/* <SignUpForm/> */}
             <h1 className="Header">Dashboard</h1>
             
        

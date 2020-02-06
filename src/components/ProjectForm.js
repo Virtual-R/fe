@@ -41,7 +41,7 @@ import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
            </Col>
       <Col md={3}>
       <FormGroup>
-         <Label for='name of project'> Name of Project:</Label>
+         <Label for='name of project'> Name of Project</Label>
            
          <Input type="text" name='name' value={newProject.name} onChange={handleChange}/>
          </FormGroup>
@@ -50,20 +50,20 @@ import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
          <Row form>
          <Col md={3}>
          <FormGroup>
-         <Label for='Description'> Description of Project:</Label>
+         <Label for='Description'> Description of Project</Label>
          <Input type='text' name='description' value={newProject.description} onChange={handleChange}/>
          </FormGroup>
          </Col>
          <Col md={3}>
          <FormGroup>
-         <Label>Amount Needed:</Label> 
+         <Label>Amount Needed</Label> 
          <Input type="text" name='amount' value={newProject.amount} onChange={handleChange}/>
          </FormGroup>
 
          </Col>
          </Row>
          <Col md={6}>
-         <Button type='submit'>Add Project: </Button>
+         <Button type='submit'>Add Project </Button>
          </Col>
          </Form>
    )
