@@ -10,7 +10,7 @@ import EditProjectForm from './components/EditProductForm';
 import "./App.css";
 import Logoff from "./components/Logoff";
 import { PrivateRoute } from "./components/PrivateRoute";
-
+import signUproute from './components/signupRoute';
 
 
 function App() {
@@ -21,11 +21,13 @@ function App() {
       <Switch>
       <Route path ='/login' component={LogInForm}/>
       <Route  exact path='/' component={DashboardContainer}/>
-      <Route path='/addproject' component={ProjectForm}/>
+      {/* <Route path='/addproject' component={ProjectForm}/> */}
       <Route path='/editproject' component={EditProjectForm}/>
       <Route path='/landingpage' component={LandingPage}/>
       <PrivateRoute exact path="/addproject" component={ProjectForm} />
-      <Route path="/logoff" component={Logoff} />      </Switch>
+      <Route path="/logoff" component={Logoff} />  
+      <Route path='/signup' component={signUproute}/>   
+      </Switch>
    
       
 

@@ -20,7 +20,7 @@ const DashboardContainer = () => {
         <Container>
         <NavBar />
           <LogInForm/>
-          <SignUpForm/>
+          {/* <SignUpForm/> */}
             <h1 className="Header">Dashboard</h1>
             
        

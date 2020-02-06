@@ -41,7 +41,7 @@ const LandingPage = (props, id) => {
    }
    return (
       <div>
-         
+        
        {project.map((product, index)=>(
           <div key={product.id}>
           <p>Title: {project.title}</p>
