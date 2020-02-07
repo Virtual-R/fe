@@ -18,8 +18,8 @@ function SignUpForm() {
   const signUp = event => {
     event.preventDefault();
 
-    axios
-      .post("https://sixr-clone.herokuapp.com/api/auth/register/", user)
+    axiosWithAuth()
+      .post("api/auth/register/",user)
       .then(res => {
         console.log(res, "res");
         history.push("/login");
