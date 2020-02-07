@@ -32,7 +32,7 @@ export default function NavBar() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="logout">
+              <a className="nav-link" href="logoff">
                 Logout
               </a>
             </li>

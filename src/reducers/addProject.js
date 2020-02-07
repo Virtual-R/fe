@@ -1,6 +1,7 @@
 import {ADD_PROJECTS_START,ADD_PROJECTS_SUCCESS, ADD_PROJECTS_ERROR} from '../types/types';
 
 const initialProductState ={
+   
    title: '',
    addingProduct: false,
    error:''
