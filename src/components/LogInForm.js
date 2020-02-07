@@ -31,7 +31,9 @@ const Div = styled.div`
       .then(response=>{
         console.log('response',response.data)
         console.log('props',props)
+        
         localStorage.setItem('token',response.data.token)
+        localStorage.setItem('userId',response.data.id)
         history.push('/addproject')
       })
       .catch(error=> error.response)

@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "./SignUpForm.scss";
 import axiosWithAuth from "../utils/axiosWithAuth";
+import NavBar from "./NavBar";
 // import axiosWithAuth from '../utils/axiosWithAuth';
 
 function SignUpForm() {
@@ -36,6 +37,7 @@ function SignUpForm() {
 
   return (
     <>
+    <NavBar/>
       <form onSubmit={signUp}>
         <input
           className="formItem"
