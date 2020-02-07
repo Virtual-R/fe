@@ -6,15 +6,16 @@ import {useHistory} from 'react-router-dom'
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import axios from 'axios';
 import NavBar from './NavBar';
+import { connect } from 'react-redux';
 
 
- const ProjectForm = (userId) => {
+ const ProjectForm = (user_id) => {
     const [newProject, setNewProject] = useState({
       
-      userId: JSON.parse(localStorage.getItem('userId',userId)),
-      title:'',
-      description: '',
-      goal_amount: '',
+      user_id: JSON.parse(localStorage.getItem('user_id',user_id)),
+      title:[],
+      description: [],
+      goal_amount: [],
      
     });
     const history = useHistory();

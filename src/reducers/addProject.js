@@ -2,7 +2,7 @@ import {ADD_PROJECTS_START,ADD_PROJECTS_SUCCESS, ADD_PROJECTS_ERROR} from '../ty
 
 const initialProductState ={
    
-   title: '',
+   title: [],
    addingProduct: false,
    error:''
 
@@ -19,7 +19,7 @@ export const addProject = (state = initialProductState, action) => {
       return {
          ...state,
          addingProduct: true,
-         project: action.payload
+         title: action.payload
       }
 
       case ADD_PROJECTS_ERROR:

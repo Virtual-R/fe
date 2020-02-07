@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useHistory} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+
 export default function NavBar() {
+  // const history = useHistory();
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light mx=auto" >
@@ -27,17 +29,21 @@ export default function NavBar() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="home">
+              <a className="nav-link" href="/">
                 Home
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="logoff">
+              <a className="nav-link" onClick={() => {
+          localStorage.removeItem("token");
+          localStorage.removeItem('user_id');
+          window.location.href= "/"}}>
                 Logout
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link disabled" href="about">
+              <a className="nav-link disabled" 
+        >
                 About us
               </a>
             </li>
