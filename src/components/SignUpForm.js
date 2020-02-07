@@ -20,11 +20,14 @@ function SignUpForm() {
 
     axiosWithAuth()
       .post("api/auth/register/",user)
-      .then(res => {
-        console.log(res, "res");
+      .then(response => {
+        
         history.push("/login");
       })
-      .catch(err => console.log(err));
+      .catch(error => {
+        console.log(error)
+        
+      });
   };
   const handleChange = event => {
     setUser({
