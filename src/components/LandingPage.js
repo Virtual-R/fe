@@ -23,7 +23,7 @@ const LandingPage = (props, id) => {
            props.editProject(project)
      
            axiosWithAuth()
-             .delete(``)//will change
+             .delete(`https://sixr-clone.herokuapp.com/:userId/projects/:id`)
              .then(result => {
                console.log("Deleted");
              })
