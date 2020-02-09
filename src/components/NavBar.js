@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 
 export default function NavBar() {
-  // const history = useHistory();
+ 
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light mx=auto" >
@@ -42,9 +42,16 @@ export default function NavBar() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link disabled" 
+              <a className="nav-link" href='/landingpage'
         >
-                About us
+                Landing Page
+              </a>
+            </li>
+            
+            <li className="nav-item">
+              <a className="nav-link" href='/addproject'
+        >
+               Add Project
               </a>
             </li>
           </ul>
