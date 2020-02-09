@@ -23,7 +23,7 @@ function App() {
       <Route  exact path='/' component={DashboardContainer}/>
       {/* <Route path='/addproject' component={ProjectForm}/> */}
       <Route path='/editproject' component={EditProjectForm}/>
-      <Route path='/landingpage' component={LandingPage}/>
+      <PrivateRoute path='/landingpage' component={LandingPage}/>
       <PrivateRoute exact path="/addproject" component={ProjectForm} />
       <Route path="/logoff" component={Logoff} />  
       <Route path='/signup' component={signUproute}/>   
