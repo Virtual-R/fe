@@ -5,11 +5,10 @@ export default function NavBar() {
  
   return (
     <div className="navBar">
-      <nav className="navbar navbar-expand-lg  bg-light mx=auto" >
+      <nav className="navbar navbar-expand-lg mx=auto" >
 
-
-        <a className="navbar-brand" href="/">
-          Home
+        <a className="navbar-brand" href="/landingpage">
+          Marketing Page
         </a>
         <button
           className="navbar-toggler"
@@ -22,44 +21,44 @@ export default function NavBar() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-
+        <p>:</p>
 
         <div className="collapse navbar-collapse" id="navbarNav">
 
           <ul className="navbar-nav">
 
             <li className="nav-item active">
-              <a className="nav-link" href="signup">
-                Sign up<span className="sr-only">(current)</span>
+              <a className="nav-link" id="home" href="/">
+                HOME<span className="sr-only">(current)</span>
               </a>
             </li>
 
             <li className="nav-item">
-              <a className="nav-link" href="login">
-                Log In
+              <a className="nav-link" href="signup">
+                Sign-Up
               </a>
             </li>
 
+            <li className="nav-item">
+              <a className="nav-link" href='login'
+        >
+                Login
+              </a>
+            </li>
+            
             <li className="nav-item">
               <a className="nav-link" onClick={() => {
-          localStorage.removeItem("token");
-          localStorage.removeItem('user_id');
-          window.location.href= "/"}}>
-                Logout
+                  localStorage.removeItem("token");
+                  localStorage.removeItem('user_id');
+                  window.location.href= "/"}}>
+                  Logout
               </a>
             </li>
 
             <li className="nav-item">
               <a className="nav-link" href='/addproject'
         >
-                Add Project
-              </a>
-            </li>
-            
-            <li className="nav-item">
-              <a className="nav-link" href='/landingpage'
-        >
-               Marketing Page
+               Add Project
               </a>
             </li>
           </ul>
