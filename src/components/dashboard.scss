@@ -1,3 +1,4 @@
+
 img {
     width:400px;
     margin-top:70px;
@@ -23,10 +24,36 @@ img {
         font-family: 'Ubuntu Mono', monospace;
         
     }
-}
+}  
 .nav-item, a {
     color: white;
+    font-size:17px;
+    .nav-item, a:hover {
+        color:white;
+        font-size:25px;
+    }
 }
+
 .navbar-brand {
-    color: black;
+    color:white;
+    font-size:16.5px;
+}
+
+.navBar {
+    display:flex;
+    justify-content: center;
+    margin-top:10px;
+    font-family: 'Ubuntu Mono', monospace;
+}
+
+p {
+    margin-top:14px;
+    font-size:20px;
+}
+
+#home {
+    color:deeppink;
+    border:1px solid white;
+    border-radius:50px;
+    
 }
