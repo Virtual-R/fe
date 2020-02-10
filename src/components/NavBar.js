@@ -5,7 +5,7 @@ export default function NavBar() {
  
   return (
     <div className="navBar">
-      <nav className="navbar navbar-expand-lg navbar-light bg-light mx=auto" >
+      <nav className="navbar navbar-expand-lg  bg-light mx=auto" >
 
 
         <a className="navbar-brand" href="/">
