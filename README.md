@@ -1,32 +1,32 @@
 Front-end ReadME 
 
 Dependencies
-@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "axios": "^0.19.2",
-    "bootstrap": "^4.4.1",
-    "jshint": "^2.11.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-hook-form": "^4.7.2",
-    "react-loading-components": "^1.1.12",
-    "react-logger": "^1.1.0",
-    "react-redux": "^7.1.3",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.3.0",
-    "reactstrap": "^8.4.1",
-    "redux": "^4.0.5",
-    "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.3.0",
-    "sass": "^1.25.0",
-    "styled-components": "^5.0.0"
+	@testing-library/jest-dom": "^4.2.4",
+	"@testing-library/react": "^9.3.2",
+	"@testing-library/user-event": "^7.1.2",
+	"axios": "^0.19.2",
+	"bootstrap": "^4.4.1",
+	"jshint": "^2.11.0",
+    	"react": "^16.12.0",
+    	"react-dom": "^16.12.0",
+    	"react-hook-form": "^4.7.2",
+    	"react-loading-components": "^1.1.12",
+    	"react-logger": "^1.1.0",
+    	"react-redux": "^7.1.3",
+    	"react-router-dom": "^5.1.2",
+    	"react-scripts": "3.3.0",
+    	"reactstrap": "^8.4.1",
+    	"redux": "^4.0.5",
+    	"redux-logger": "^3.0.6",
+    	"redux-thunk": "^2.3.0",
+    	"sass": "^1.25.0",
+    	"styled-components": "^5.0.0"
     
 Download Project and Install Dependencies
 
-fork and clone this repository.
+Fork and clone this repository, by doing a git clone and copy the fork link.
 CD into the folder where you downloaded the repository.
-run npm i to download all dependencies.
+run npm install to download all dependencies.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
