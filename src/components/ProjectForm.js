@@ -1,19 +1,35 @@
 import React , {useState} from 'react';
-import { addProject } from '../reducers/addProject';
+import { addProject } from '../actions/addProject';
 import {useDispatch} from 'react-redux';
 import Logoff from './Logoff';
+import {useHistory} from 'react-router-dom'
 import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import axios from 'axios';
+import NavBar from './NavBar';
+import { connect } from 'react-redux';
 
 
- const ProjectForm = (props) => {
+ const ProjectForm = (user_id) => {
     const [newProject, setNewProject] = useState({
-       title:'',
-       name:'',
-       description:'',
-       amount:'',
+      
+      user_id: JSON.parse(localStorage.getItem('user_id',user_id)),
+      title:[],
+      description: [],
+      goal_amount: [],
+     
     });
- 
+    const history = useHistory();
     const dispatch = useDispatch()
+
+    const handleSubmit =(event) =>{
+      event.preventDefault();
+      
+      dispatch(addProject(newProject));
+      // / history.push('/landingpage')
+      console.log('handle',newProject)
+      
+   
+   }
     const handleChange=(event)=>{
        event.preventDefault()
       setNewProject({
@@ -21,15 +37,14 @@ import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
          [event.target.name]: event.target.value
       })
     }
+    console.log(dispatch(addProject))
     console.log(newProject)
-    const handleSubmit =(event) =>{
-       event.preventDefault();
-       dispatch(addProject(newProject));
-       props.history.push('/landingpage')
-       
-    }
+    
+    
    
    return (
+      <>
+      <NavBar/>
       <Form onSubmit={handleSubmit}>
       <Row form>
       <Col md={3}>
@@ -39,33 +54,26 @@ import { Col, Row, Button, Form, FormGroup, Label, Input } from 'reactstrap';
            <Input type='text' name='title' value={newProject.title} onChange={handleChange}/>
            </FormGroup>
            </Col>
-      <Col md={3}>
-      <FormGroup>
-         <Label for='name of project'> Name of Project:</Label>
-           
-         <Input type="text" name='name' value={newProject.name} onChange={handleChange}/>
-         </FormGroup>
-         </Col>
-         </Row>
-         <Row form>
+     
          <Col md={3}>
          <FormGroup>
-         <Label for='Description'> Description of Project:</Label>
+         <Label for='Description'> Description of Project</Label>
          <Input type='text' name='description' value={newProject.description} onChange={handleChange}/>
          </FormGroup>
          </Col>
          <Col md={3}>
          <FormGroup>
-         <Label>Amount Needed:</Label> 
-         <Input type="text" name='amount' value={newProject.amount} onChange={handleChange}/>
+         <Label>Amount Needed</Label> 
+         <Input type="number" name='goal_amount' value={newProject.goal_amount} onChange={handleChange}/>
          </FormGroup>
 
          </Col>
          </Row>
          <Col md={6}>
-         <Button type='submit'>Add Project: </Button>
+         <Button type='submit'>Add Project </Button>
          </Col>
          </Form>
+         </>
    )
 }
 export default ProjectForm;

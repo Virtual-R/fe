@@ -7,6 +7,7 @@ export const Logoff = props => {
         className="logoff"
         onClick={() => {
           localStorage.removeItem("token");
+          localStorage.removeItem('userId')
           props.history.push("/");
         }}
       >
