@@ -1,11 +1,10 @@
 import React, {useHistory} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-
 export default function NavBar() {
  
   return (
-    <div>
+    <div className="navBar">
       <nav className="navbar navbar-expand-lg navbar-light bg-light mx=auto" >
 
 

@@ -1,18 +1,19 @@
 import React from 'react';
 import {
-    CardBody, CardImg, 
-    CardTitle, CardSubtitle, Row
+    CardBody, 
+    CardTitle, CardSubtitle, Col
   } from 'reactstrap';
+import './dashboardCard.scss'
 
   const DashboardCard = props => {
       return (
-          <Row>
-              <CardBody> 
-                  <CardTitle>{props.data.setProject.title}</CardTitle>
-                  <CardSubtitle>{props.data.setProject.description}</CardSubtitle>
-                  <CardSubtitle>{props.data.setProject.goal_amount}</CardSubtitle>
+          <Col>
+              <CardBody className="bodyClass"> 
+                  <CardTitle className="titleClass">{props.data.setProject.title}</CardTitle>
+                  <CardSubtitle className="subtitleClass">{props.data.setProject.description}</CardSubtitle>
+                  <CardSubtitle className="goalClass">{props.data.setProject.goal_amount}</CardSubtitle>
               </CardBody>
-          </Row>
+          </Col>
       )
   }
 
