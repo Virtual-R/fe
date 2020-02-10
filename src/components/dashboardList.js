@@ -7,7 +7,6 @@ const DashboardList = ((props) => {
     return (
         <div>
             <DashboardCard data={props} />
-            
         </div>
     )
 })
