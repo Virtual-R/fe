@@ -1,11 +1,21 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Route, Redirect } from "react-router-dom";
 import { editProject, deleteProject } from "../actions/editProject";
 import axiosWithAuth from "../utils/axiosWithAuth";
 
-const LandingPage = (props, id) => {
-  const [project, setProject] = useState([]);
+const LandingPage = (props, user_id,project_id) => {
+  const [project, setProject] = useState(
+    [{
+   
+    user_id: JSON.parse(localStorage.getItem("user_id", user_id)),
+    title: [],
+    description: [],
+    goal_amount: [],
+    project_id: JSON.parse(localStorage.getItem("project_id", project_id))
+    }]
+  );
+  
 
   const dispatch = useDispatch();
   const handleDelete = event => {
@@ -13,29 +23,35 @@ const LandingPage = (props, id) => {
     dispatch(deleteProject(event.target.value));
   };
 
-  const product = [project.find(product => product.id === id)];
+  // const product = [project.find(product => product.id === id)];
 
-  if (window.confirm("Are you sure?!")) {
-    setProject(project.filter(product => product.id !== id));
-    props.editProject(project);
-
-    axiosWithAuth()
-      .delete(`https://sixr-clone.herokuapp.com/:userId/projects/:id`)
-      .then(result => {
-        console.log("Deleted");
-      })
-      .catch(error => {
-        console.log(error);
-        setProject([...project, product]);
-      });
-  }
-
-  console.log(project);
-
+ 
   const handleEdit = event => {
     event.preventDefault();
     dispatch(editProject(event.target.value));
   };
+  useEffect(() => {
+    const userId = localStorage.getItem('user_id')
+    const projectId = localStorage.getItem('project_id')
+    axiosWithAuth()
+    .get(`${userId}/projects/${projectId}`)
+    .then(result => {
+      
+        setProject(result.data);
+        console.log("project", result.data);
+        
+      })
+      .catch(error => {
+        console.log(error);
+        
+      
+      
+      });
+    
+  }, [project])
+    
+  
+
   return (
     <div>
       {project.map((product, index) => (
@@ -49,6 +65,6 @@ const LandingPage = (props, id) => {
       ))}
     </div>
   );
-};
+      }
 
 export default LandingPage;

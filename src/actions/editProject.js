@@ -3,21 +3,23 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 
 export const editProject = () => dispatch=>{
    dispatch({type: EDIT_PROJECTS_START});
+   const userId = localStorage.getItem('user_id')
    axiosWithAuth()
-   .put('https://sixr-clone.herokuapp.com/:userId/projects/:id')//api goes here
+   .put(`/${userId}/projects/:id`)//api goes here
    .then(response=>{
-      dispatch({type:EDIT_PROJECTS_SUCCESS, payload: response.data.results})
+      dispatch({type:EDIT_PROJECTS_SUCCESS, payload: response.data})
    })
    .catch(error =>dispatch({ type: EDIT_PROJECTS_ERROR, payload: error.response}))
 }
 
 export const deleteProject = () => dispatch =>{
+   const userId = localStorage.getItem('user_id')
    dispatch({type: DELETE_PROJECTS_START});
    axiosWithAuth()
-   .delete("https://sixr-clone.herokuapp.com/:userId/projects/:id")
+   .delete(`/${userId}projects/:id`)
    .then(response=>{
       console.log(response);
-      dispatch({type:DELETE_PROJECTS_SUCCESS, payload: response.data.results})
+      dispatch({type:DELETE_PROJECTS_SUCCESS, payload: response.data})
    })
    .catch(error=>dispatch({DELETE_PROJECTS_ERROR, payload:error.response}))
 

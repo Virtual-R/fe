@@ -13,6 +13,7 @@ const DashboardContainer = () => {
         axios.get('https://sixr-clone.herokuapp.com/api/overview')
         .then(response => {
             setProject(response.data)
+            console.log(response.data)
         })
         .catch(error => {console.log('error', error)})
     }, [])

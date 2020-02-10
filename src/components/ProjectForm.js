@@ -7,23 +7,28 @@ import { Col, Row, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import axios from "axios";
 import NavBar from "./NavBar";
 import { connect } from "react-redux";
+import LandingPage from "./LandingPage";
 
 const ProjectForm = user_id => {
   const [newProject, setNewProject] = useState({
     user_id: JSON.parse(localStorage.getItem("user_id", user_id)),
     title: [],
     description: [],
-    goal_amount: []
+    goal_amount: [],
+    
   });
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const handleSubmit = event => {
+  const handleSubmit = (event,project_id )=> {
     event.preventDefault();
-
+    localStorage.setItem('project_id', project_id)
     dispatch(addProject(newProject));
+    
+    
     history.push("/");
     console.log("handle", newProject);
+    
   };
   const handleChange = event => {
     event.preventDefault();
@@ -37,6 +42,7 @@ const ProjectForm = user_id => {
 
   return (
     <>
+      
       <NavBar />
       <Form onSubmit={handleSubmit}>
         <Row form>
