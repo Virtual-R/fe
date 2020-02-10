@@ -9,7 +9,7 @@ export const addProject = project => dispatch=>{
    .post(`/api/users/${userId}/projects`,project)
    .then(response=>{
       dispatch({type:ADD_PROJECTS_SUCCESS, payload: response.data }, console.log('add',response.data))
-      localStorage.setItem('project_id', response.data[0].project_id)
+      
       console.log('add',response.data)
    })
    .catch(error =>dispatch({ type: ADD_PROJECTS_ERROR, payload: error.response}))

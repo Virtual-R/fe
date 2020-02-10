@@ -3,18 +3,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { Route, Redirect } from "react-router-dom";
 import { editProject, deleteProject } from "../actions/editProject";
 import axiosWithAuth from "../utils/axiosWithAuth";
+import NavBar from "./NavBar";
 
-const LandingPage = (props, user_id,project_id) => {
-  const [project, setProject] = useState(
-    [{
-   
-    user_id: JSON.parse(localStorage.getItem("user_id", user_id)),
-    title: [],
-    description: [],
-    goal_amount: [],
-    project_id: JSON.parse(localStorage.getItem("project_id", project_id))
-    }]
-  );
+const LandingPage = (props,project_id, user_id) => {
+  const [project, setProject] = useState([]);
   
 
   const dispatch = useDispatch();
@@ -30,15 +22,16 @@ const LandingPage = (props, user_id,project_id) => {
     event.preventDefault();
     dispatch(editProject(event.target.value));
   };
+
   useEffect(() => {
-    const userId = localStorage.getItem('user_id')
+    const userId = localStorage.getItem("user_id", user_id);
     const projectId = localStorage.getItem('project_id')
     axiosWithAuth()
-    .get(`${userId}/projects/${projectId}`)
-    .then(result => {
+    .get(`/api/users/${userId}/projects`,project)
+    .then(response => {
       
-        setProject(result.data);
-        console.log("project", result.data);
+        setProject([response.data[0]]);
+        console.log('line 33', response.data);
         
       })
       .catch(error => {
@@ -48,22 +41,24 @@ const LandingPage = (props, user_id,project_id) => {
       
       });
     
-  }, [project])
+  }, [])
     
   
 
   return (
     <div>
-      {project.map((product, index) => (
-        <div key={product.id}>
-          <p>Title: {project.title}</p>
-          <p>Description: {project.description} </p>
-          <p>Amount: </p>
+      <NavBar/>
+      {project.map((projects, index) => (
+        <div key={index}>
+          <p>Title: {projects.title}</p>
+          <p>Description: {projects.description} </p>
+          <p>Amount: {projects.goal_amount}</p>
           <button onClick={handleDelete}>Delete</button>
           <button onClick={handleEdit}>Edit</button>
         </div>
       ))}
     </div>
+   
   );
       }
 

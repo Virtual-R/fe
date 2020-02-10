@@ -4,8 +4,9 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 export const editProject = () => dispatch=>{
    dispatch({type: EDIT_PROJECTS_START});
    const userId = localStorage.getItem('user_id')
+   const projectid = localStorage.getItem('project_id')
    axiosWithAuth()
-   .put(`/${userId}/projects/:id`)//api goes here
+   .put(`${userId}/projects/${projectid}`)//api goes here
    .then(response=>{
       dispatch({type:EDIT_PROJECTS_SUCCESS, payload: response.data})
    })
@@ -14,9 +15,10 @@ export const editProject = () => dispatch=>{
 
 export const deleteProject = () => dispatch =>{
    const userId = localStorage.getItem('user_id')
+   const projectid = localStorage.getItem('project_id')
    dispatch({type: DELETE_PROJECTS_START});
    axiosWithAuth()
-   .delete(`/${userId}projects/:id`)
+   .delete(`${userId}projects/${projectid}`)
    .then(response=>{
       console.log(response);
       dispatch({type:DELETE_PROJECTS_SUCCESS, payload: response.data})
