@@ -4,7 +4,7 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 export const editProject = () => dispatch=>{
    dispatch({type: EDIT_PROJECTS_START});
    axiosWithAuth()
-   .put('')//api goes here
+   .put('https://sixr-clone.herokuapp.com/:userId/projects/:id')//api goes here
    .then(response=>{
       dispatch({type:EDIT_PROJECTS_SUCCESS, payload: response.data.results})
    })
@@ -14,7 +14,7 @@ export const editProject = () => dispatch=>{
 export const deleteProject = () => dispatch =>{
    dispatch({type: DELETE_PROJECTS_START});
    axiosWithAuth()
-   .delete("")
+   .delete("https://sixr-clone.herokuapp.com/:userId/projects/:id")
    .then(response=>{
       console.log(response);
       dispatch({type:DELETE_PROJECTS_SUCCESS, payload: response.data.results})
