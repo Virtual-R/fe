@@ -7,8 +7,10 @@ export default function NavBar() {
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light bg-light mx=auto" >
-        <a className="navbar-brand" href="login">
-          Login
+
+
+        <a className="navbar-brand" href="/">
+          Home
         </a>
         <button
           className="navbar-toggler"
@@ -21,18 +23,24 @@ export default function NavBar() {
         >
           <span className="navbar-toggler-icon"></span>
         </button>
+
+
         <div className="collapse navbar-collapse" id="navbarNav">
+
           <ul className="navbar-nav">
+
             <li className="nav-item active">
               <a className="nav-link" href="signup">
                 Sign up<span className="sr-only">(current)</span>
               </a>
             </li>
+
             <li className="nav-item">
-              <a className="nav-link" href="/">
-                Home
+              <a className="nav-link" href="login">
+                Log In
               </a>
             </li>
+
             <li className="nav-item">
               <a className="nav-link" onClick={() => {
           localStorage.removeItem("token");
@@ -41,17 +49,18 @@ export default function NavBar() {
                 Logout
               </a>
             </li>
+
             <li className="nav-item">
-              <a className="nav-link" href='/landingpage'
+              <a className="nav-link" href='/addproject'
         >
-                Landing Page
+                Add Project
               </a>
             </li>
             
             <li className="nav-item">
-              <a className="nav-link" href='/addproject'
+              <a className="nav-link" href='/landingpage'
         >
-               Add Project
+               Marketing Page
               </a>
             </li>
           </ul>

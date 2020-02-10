@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Container, Col, Row } from 'reactstrap';
+import { Container, Col, Row, CardImg } from 'reactstrap';
 import axios from 'axios';
 import DashboardList from "./dashboardList";
-import LogInForm from './LogInForm';
-import SignUpForm from './SignUpForm';
 import NavBar from "./NavBar"
+import "./dashboard.scss";
+
 const DashboardContainer = () => {
     const [project, setProject] = useState([])
 
@@ -19,10 +19,8 @@ const DashboardContainer = () => {
     return (
         <Container>
         <NavBar />
-         
-            <h1 className="Header">Dashboard</h1>
-            
-       
+            <img src="vrpic.png"/>  
+            <h1 className="Header">DASHBOARD</h1>
             <Row>
                 {project.map((item, id) => {
                     return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-    CardBody,
+    CardBody, CardImg, 
     CardTitle, CardSubtitle, Row
   } from 'reactstrap';
 
@@ -10,7 +10,7 @@ import {
               <CardBody> 
                   <CardTitle>{props.data.setProject.title}</CardTitle>
                   <CardSubtitle>{props.data.setProject.description}</CardSubtitle>
-      <CardSubtitle>{props.data.setProject.goal_amount}</CardSubtitle>
+                  <CardSubtitle>{props.data.setProject.goal_amount}</CardSubtitle>
               </CardBody>
           </Row>
       )
