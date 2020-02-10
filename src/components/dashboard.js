@@ -4,7 +4,7 @@ import axios from 'axios';
 import DashboardList from "./dashboardList";
 import NavBar from "./NavBar"
 import "./dashboard.scss";
-import "./picvr.svg"
+import "./images/picvr.svg"
 
 const DashboardContainer = () => {
     const [project, setProject] = useState([])
@@ -20,7 +20,7 @@ const DashboardContainer = () => {
     return (
         <Container>
         <NavBar /> 
-            <img src={require('./picvr.svg')}/>
+            <img src={require('./images/picvr.svg')}/>
             <h1 className="Header">DASHBOARD</h1>
             <Col  className="containerClass"> 
                 {project.map((item, id) => {
