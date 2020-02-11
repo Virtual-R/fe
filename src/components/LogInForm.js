@@ -4,6 +4,8 @@ import styled from "styled-components";
 import axiosWithAuth from "../utils/axiosWithAuth";
 import { useHistory } from "react-router-dom";
 import "./LogInForm.scss";
+import NavBar from "./NavBar";
+
 const H2 = styled.h2`
   color: rgb(64, 224, 208);
   text-align: center;
@@ -46,7 +48,8 @@ export default function LogInForm(props) {
   };
 
   return (
-    // <Div>
+    <>
+      <NavBar/>
       <Form  className="logContainer" onSubmit={login}>
         <H2>Log in</H2>
 
@@ -75,6 +78,6 @@ export default function LogInForm(props) {
           {loading ? "Loading..." : "Sign In"}
         </Button>
       </Form>
-    // </Div>
+    </>
   );
 }
