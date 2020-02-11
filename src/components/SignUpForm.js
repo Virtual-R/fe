@@ -41,10 +41,10 @@ function SignUpForm() {
   return (
     <>
     <NavBar/>
-      <form onSubmit={signUp}>
+      <form className="formContainer" onSubmit={signUp}>
         <input
           className="formItem"
-          placeholder="UserName"
+          placeholder="User name"
           type="text"
           name="username"
           ref={register({ required: true, maxLength: 20 })}
@@ -64,7 +64,7 @@ function SignUpForm() {
         />
         {errors.password && "Uh Oh...A Password is required"}
 
-        <input className="formItem" type="submit" />
+        <input className="submitClass"  value="SIGN UP!" type="submit" />
       </form>
     </>
   );
