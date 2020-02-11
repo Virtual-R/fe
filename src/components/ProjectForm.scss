@@ -1,0 +1,68 @@
+.addProject {
+    border:2px solid rgb(64, 224, 208);
+    width:800px;
+    height:700px;
+    margin:auto;
+    display:flex;
+    padding:50px;
+    font-family: 'Ubuntu Mono', monospace;
+    border-radius:50px;
+    align-items:center;
+    margin-top:80px;
+    
+    .titleClass {
+        
+        margin:auto;
+        margin-bottom:50px;
+
+        .titleLabel {
+            color:#00ff00;
+            font-size:20px;
+        }
+
+        .titleInput {
+            border:2px solid #00ff00;
+            background-color:rgb(28, 30, 32);
+        }
+    }
+
+    .descriptionClass {
+        margin:auto;
+        margin-bottom:50px;
+
+        .descriptionLabel {
+            color:yellow;
+            font-size:20px;
+        }
+
+        .descriptionInput {
+            border:2px solid yellow;
+            background-color:rgb(28, 30, 32);
+            color:yellow;
+        }
+    }
+
+    .amountClass {
+        margin:auto;
+        margin-bottom:50px;
+
+        .amountLabel {
+            color:deeppink;
+            font-size:20px;
+        }
+
+        .amountInput {
+            border:2px solid deeppink;
+            background-color:rgb(28, 30, 32);
+            color:deeppink;
+        }
+    }
+
+    .buttonClassProject {
+        border:2px solid rgb(64, 224, 208);
+        margin:auto;
+        background-color:rgb(28, 30, 32);
+        color:rgb(64, 224, 208);
+        font-size:25px;
+    }
+}
