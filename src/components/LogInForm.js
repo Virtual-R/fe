@@ -2,18 +2,19 @@ import * as React from "react";
 import { Button, Form, FormGroup, Input } from "reactstrap";
 import styled from "styled-components";
 import axiosWithAuth from "../utils/axiosWithAuth";
-import axios from "axios";
 import { useHistory } from "react-router-dom";
+import "./LogInForm.scss";
 const H2 = styled.h2`
-  color: #ffffff;
+  color: rgb(64, 224, 208);
   text-align: center;
-  text-shadow: 2px 3px black;
+  font-family: 'Ubuntu Mono', monospace;
+  font-size:40px;
 `;
-const Div = styled.div`
-  background-color: #035a70;
-  width: 174px;
-  margin-left: 150px;
-`;
+// const Div = styled.div`
+//   background-color: #035a70;
+//   width: 174px;
+//   margin-left: 150px;
+// `;
 
 export default function LogInForm(props) {
   const [loading] = React.useState(false);
@@ -45,12 +46,13 @@ export default function LogInForm(props) {
   };
 
   return (
-    <Div>
-      <Form onSubmit={login}>
+    // <Div>
+      <Form  className="logContainer" onSubmit={login}>
         <H2>Log in</H2>
 
         <FormGroup>
           <Input
+            className="usernameClass"
             type="username"
             name="username"
             value={user.username}
@@ -60,6 +62,7 @@ export default function LogInForm(props) {
         </FormGroup>
         <FormGroup>
           <Input
+            className="passwordClass"
             type="password"
             name="password"
             value={user.password}
@@ -68,10 +71,10 @@ export default function LogInForm(props) {
           />
         </FormGroup>
 
-        <Button type="submit" disabled={loading} block={true}>
+        <Button className="submitClass" type="submit" disabled={loading} block={true}>
           {loading ? "Loading..." : "Sign In"}
         </Button>
       </Form>
-    </Div>
+    // </Div>
   );
 }
