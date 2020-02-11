@@ -7,6 +7,7 @@ import { Col, Row, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import axios from "axios";
 import NavBar from "./NavBar";
 import { connect } from "react-redux";
+import "./ProjectForm.scss";
 
 const ProjectForm = user_id => {
   const [newProject, setNewProject] = useState({
@@ -38,46 +39,49 @@ const ProjectForm = user_id => {
   return (
     <>
       <NavBar />
-      <Form onSubmit={handleSubmit}>
-        <Row form>
-          <Col md={3}>
-            <FormGroup>
-              <Label for="title">Title</Label>
+      <Form className="addProject" onSubmit={handleSubmit}>
+        <Col form>
+          <Row md={3}>
+            <FormGroup className="titleClass">
+              <Label className="titleLabel" for="title">Title</Label>
 
               <Input
+                className="titleInput"
                 type="text"
                 name="title"
                 value={newProject.title}
                 onChange={handleChange}
               />
             </FormGroup>
-          </Col>
+          </Row>
 
-          <Col md={3}>
-            <FormGroup>
-              <Label for="Description"> Description of Project</Label>
+          <Row md={3}>
+            <FormGroup className="descriptionClass">
+              <Label className="descriptionLabel" for="Description"> Project Description</Label>
               <Input
+                className="descriptionInput"
                 type="text"
                 name="description"
                 value={newProject.description}
                 onChange={handleChange}
               />
             </FormGroup>
-          </Col>
-          <Col md={3}>
-            <FormGroup>
-              <Label>Amount Needed</Label>
+          </Row>
+          <Row md={3}>
+            <FormGroup className="amountClass">
+              <Label className="amountLabel">Amount Needed</Label>
               <Input
+              className="amountInput"
                 type="number"
                 name="goal_amount"
                 value={newProject.goal_amount}
                 onChange={handleChange}
               />
             </FormGroup>
-          </Col>
-        </Row>
-        <Col md={6}>
-          <Button type="submit">Add Project </Button>
+          </Row>
+          <Row>
+          <Button className="buttonClassProject" type="submit">Add Project </Button>
+          </Row>
         </Col>
       </Form>
     </>
